@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Programming.Models.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms.VisualStyles;
 
 namespace Programming.Models.Enums
 {
@@ -13,34 +15,31 @@ namespace Programming.Models.Enums
         private double Height { get; set; }
 
         private string Color { get; set; }
+        private int Id = 0;
+        private static int _allRectanglesCount = 0;
 
-
-        public Rectange(double width, double height, string color)
+        public Rectange(double height,double width, string color,int id)
         {
-
+           
             Check(width, height);
             Color = color;
+            Id = id;
         }
-        public Rectange() { }
+        public Rectange() {
+            _allRectanglesCount +=1;
+        }
 
         //проверяем условия 
         private void Check(double width, double height)
         {
-            if (width > 0.0 & height > 0.0)
-            {
-                Width = width;
-                Height = height;
-            }
-            else
-            {
-                throw new ArgumentException(String.Format("{0} не является подходящим числом", width),
-                                      "width");
-            }
+          Validator vd = new Validator();
+          Width = vd.AssertOnPositiveValue(width);
+          Height = vd.AssertOnPositiveValue(height);
         }
         //получаем значение
         public string[] answRec()
         {
-            string[] answ = { _name, Width.ToString(), Height.ToString(), Color };
+            string[] answ = {Height.ToString(), Width.ToString(), Color,Id.ToString() };
             return answ;
         }
         //смена значений
@@ -54,6 +53,18 @@ namespace Programming.Models.Enums
         {
 
             return (int)Width;
+        }
+        public Point2D Center()
+        {
+
+            int w_center = (int)Width/2;
+            int h_center = (int)Height/2;
+
+            return new Point2D(w_center, h_center);
+        }
+        public static int AllRectanglesCount() 
+        {
+            return _allRectanglesCount;
         }
     }
 }

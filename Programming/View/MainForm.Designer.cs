@@ -51,6 +51,8 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label9 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.CentertextBox = new System.Windows.Forms.TextBox();
             this.find_button = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.labl = new System.Windows.Forms.Label();
@@ -73,6 +75,8 @@
             this.title_textBox = new System.Windows.Forms.TextBox();
             this.movie_listBox = new System.Windows.Forms.ListBox();
             this.label17 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.IdTextBox = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -310,6 +314,10 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label19);
+            this.panel2.Controls.Add(this.IdTextBox);
+            this.panel2.Controls.Add(this.label18);
+            this.panel2.Controls.Add(this.CentertextBox);
             this.panel2.Controls.Add(this.find_button);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.labl);
@@ -323,9 +331,26 @@
             this.panel2.Size = new System.Drawing.Size(405, 353);
             this.panel2.TabIndex = 3;
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(239, 251);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(41, 13);
+            this.label18.TabIndex = 9;
+            this.label18.Text = "Center:";
+            // 
+            // CentertextBox
+            // 
+            this.CentertextBox.Location = new System.Drawing.Point(240, 267);
+            this.CentertextBox.Name = "CentertextBox";
+            this.CentertextBox.ReadOnly = true;
+            this.CentertextBox.Size = new System.Drawing.Size(147, 20);
+            this.CentertextBox.TabIndex = 8;
+            // 
             // find_button
             // 
-            this.find_button.Location = new System.Drawing.Point(239, 230);
+            this.find_button.Location = new System.Drawing.Point(242, 293);
             this.find_button.Name = "find_button";
             this.find_button.Size = new System.Drawing.Size(75, 23);
             this.find_button.TabIndex = 7;
@@ -336,7 +361,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(236, 140);
+            this.label10.Location = new System.Drawing.Point(239, 203);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(34, 13);
             this.label10.TabIndex = 6;
@@ -345,7 +370,7 @@
             // labl
             // 
             this.labl.AutoSize = true;
-            this.labl.Location = new System.Drawing.Point(236, 92);
+            this.labl.Location = new System.Drawing.Point(239, 155);
             this.labl.Name = "labl";
             this.labl.Size = new System.Drawing.Size(38, 13);
             this.labl.TabIndex = 5;
@@ -354,7 +379,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(236, 43);
+            this.label11.Location = new System.Drawing.Point(239, 106);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(43, 13);
             this.label11.TabIndex = 4;
@@ -362,7 +387,7 @@
             // 
             // color_tb
             // 
-            this.color_tb.Location = new System.Drawing.Point(237, 156);
+            this.color_tb.Location = new System.Drawing.Point(240, 219);
             this.color_tb.Name = "color_tb";
             this.color_tb.Size = new System.Drawing.Size(147, 20);
             this.color_tb.TabIndex = 3;
@@ -370,7 +395,7 @@
             // 
             // width_tb
             // 
-            this.width_tb.Location = new System.Drawing.Point(237, 111);
+            this.width_tb.Location = new System.Drawing.Point(240, 174);
             this.width_tb.Name = "width_tb";
             this.width_tb.Size = new System.Drawing.Size(147, 20);
             this.width_tb.TabIndex = 2;
@@ -378,7 +403,7 @@
             // 
             // lenght_tb
             // 
-            this.lenght_tb.Location = new System.Drawing.Point(237, 62);
+            this.lenght_tb.Location = new System.Drawing.Point(240, 125);
             this.lenght_tb.Name = "lenght_tb";
             this.lenght_tb.Size = new System.Drawing.Size(147, 20);
             this.lenght_tb.TabIndex = 1;
@@ -521,6 +546,23 @@
             this.label17.TabIndex = 2;
             this.label17.Text = "Movie";
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(239, 43);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(19, 13);
+            this.label19.TabIndex = 11;
+            this.label19.Text = "Id:";
+            // 
+            // IdTextBox
+            // 
+            this.IdTextBox.Location = new System.Drawing.Point(240, 62);
+            this.IdTextBox.Name = "IdTextBox";
+            this.IdTextBox.ReadOnly = true;
+            this.IdTextBox.Size = new System.Drawing.Size(147, 20);
+            this.IdTextBox.TabIndex = 10;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -594,6 +636,10 @@
         private System.Windows.Forms.TextBox title_textBox;
         private System.Windows.Forms.ListBox movie_listBox;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox CentertextBox;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox IdTextBox;
     }
 }
 

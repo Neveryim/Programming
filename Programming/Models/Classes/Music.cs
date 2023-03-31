@@ -24,16 +24,8 @@ namespace Programming.Models.Enums
         private void Check(int count)
         {
 
-            if (count > 0)
-            {
-
-                Count = count;
-            }
-            else
-            {
-                throw new ArgumentException(String.Format("{0} не является подходящим числом", count),
-                                    "count");
-            }
+           Validator vd = new Validator();
+           Count = vd.AssertOnPositiveValue(count);
 
 
         }

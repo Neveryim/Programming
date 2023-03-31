@@ -1,4 +1,5 @@
-﻿using Programming.Models.Enums;
+﻿using Programming.Models.Classes;
+using Programming.Models.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,6 +28,7 @@ namespace Programming
         public MainForm()
         {
             InitializeComponent();
+           
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -125,12 +127,12 @@ namespace Programming
                 try
                 {
                     color_tb.BackColor = Color.White;
-                    _currentRenctangle = new Rectange(Convert.ToInt32(lenght_tb.Text), Convert.ToInt32(width_tb.Text), color_tb.Text);
+                    _currentRenctangle = new Rectange(Convert.ToInt32(lenght_tb.Text), Convert.ToInt32(width_tb.Text), color_tb.Text, Convert.ToInt32(IdTextBox.Text));
                     _rectangles[(int)rect_listBox.SelectedIndex] = _currentRenctangle;// присваиваем новые значения
                 }
                 catch
                 {
-                    color_tb.BackColor = Color.LightPink;
+                    
                 }
 
             }
@@ -143,7 +145,7 @@ namespace Programming
                 try
                 {
                     width_tb.BackColor = Color.White;
-                    _currentRenctangle = new Rectange(Convert.ToInt32(lenght_tb.Text), Convert.ToInt32(width_tb.Text), color_tb.Text);
+                    _currentRenctangle = new Rectange(Convert.ToInt32(lenght_tb.Text), Convert.ToInt32(width_tb.Text), color_tb.Text, Convert.ToInt32(IdTextBox.Text));
                     _rectangles[(int)rect_listBox.SelectedIndex] = _currentRenctangle;// присваиваем новые значения
                 }
                 catch
@@ -161,7 +163,7 @@ namespace Programming
                 try
                 {
                     lenght_tb.BackColor = Color.White;
-                    _currentRenctangle = new Rectange(Convert.ToInt32(lenght_tb.Text), Convert.ToInt32(width_tb.Text), color_tb.Text);
+                    _currentRenctangle = new Rectange(Convert.ToInt32(lenght_tb.Text), Convert.ToInt32(width_tb.Text), color_tb.Text, Convert.ToInt32(IdTextBox.Text));
                     _rectangles[(int)rect_listBox.SelectedIndex] = _currentRenctangle;// присваиваем новые значения
                 }
                 catch
@@ -174,12 +176,17 @@ namespace Programming
 
         private void rect_listBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Получаем данные о выбранном объекте 
-            string[] answr = _rectangles[rect_listBox.SelectedIndex].answRec();
-            lenght_tb.Text = answr[2];
-            width_tb.Text = answr[1];
-            color_tb.Text = answr[3];
+            _currentRenctangle = null;
             _currentRenctangle = _rectangles[(int)rect_listBox.SelectedIndex];
+            //Получаем данные о выбранном объекте 
+            string[] answr = _currentRenctangle.answRec();
+            lenght_tb.Text = answr[0];
+            width_tb.Text = answr[1];
+            color_tb.Text = answr[2];
+            Point2D ct = _rectangles[rect_listBox.SelectedIndex].Center();
+            CentertextBox.Text = ct.PrintCenter();
+            IdTextBox.Text = answr[3];
+           
         }
 
         private void Find_movie_button_Click(object sender, EventArgs e)
@@ -197,7 +204,7 @@ namespace Programming
 
             }
             MessageBox.Show($"Самый рейтинговый фильм с индексом - {index}");
-            movie_listBox.SetSelected(index, true); // будет выделен первый элемент
+            movie_listBox.SetSelected(index, true); // будет выделен  элемент
         }
 
         private void rating_textBox_TextChanged(object sender, EventArgs e)
@@ -215,6 +222,7 @@ namespace Programming
             genre_textBox.Text = answr[3];
             rating_textBox.Text = answr[4];
             _currentMovie = _movie[(int)movie_listBox.SelectedIndex];
+           
         }
 
         private void tabControl1_Selected(object sender, TabControlEventArgs e)
@@ -222,7 +230,7 @@ namespace Programming
             Random rd = new Random();
             for (int i = 0; i < _rectangles.Length; i++)
             {
-                _rectangles[i] = new Rectange(Convert.ToDouble(rd.Next(1, 244)), Convert.ToDouble(rd.Next(1, 244)), _colors[rd.Next(0, 4)]);
+                _rectangles[i] = new Rectange(Convert.ToDouble(rd.Next(1, 244)), Convert.ToDouble(rd.Next(1, 244)), _colors[rd.Next(0, 4)],i+1);
                 rect_listBox.Items.Add($"Rectangle {i + 1}");
             }
             rect_listBox.SetSelected(0, true); // будет выделен первый элемент

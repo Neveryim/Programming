@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Classes\CollisionManager.cs" />
+    <Compile Include="Models\Classes\Point2D.cs" />
+    <Compile Include="Models\Classes\Ring.cs" />
     <Compile Include="Models\Classes\Time.cs" />
     <Compile Include="Models\Classes\Trip.cs" />
     <Compile Include="Models\Enums\Colors.cs" />
@@ -59,6 +62,7 @@
     <Compile Include="Models\Classes\Rectange.cs" />
     <Compile Include="Models\Enums\Season.cs" />
     <Compile Include="Models\Enums\Weekday.cs" />
+    <Compile Include="Models\Validator.cs" />
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

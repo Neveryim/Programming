@@ -25,21 +25,12 @@ namespace Programming.Models.Enums
         private void Check(string title, int deration, int year, string genre, double rating)
         {
 
-
+            Validator vd= new Validator();
             Title = title;
             Duration = deration;
             Year_of_release = year;
             Genre = genre;
-            if (rating > 0.0 & rating <= 10.0)
-            {
-                Rating = rating;
-            }
-            else
-            {
-                throw new ArgumentException(String.Format("{0} не является подходящим числом", rating),
-                                    "rating");
-
-            }
+            Rating = vd.AssertValueInRange((int)vd.AssertOnPositiveValue(rating), 1, 10);
 
         }
         public string[] answRec()
