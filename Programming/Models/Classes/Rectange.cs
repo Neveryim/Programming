@@ -8,7 +8,7 @@ using System.Windows.Forms.VisualStyles;
 
 namespace Programming.Models.Enums
 {
-    internal class Rectange
+    internal class Rectangles
     {
         private string _name { get; set; }
         private double Width { get; set; }
@@ -18,14 +18,14 @@ namespace Programming.Models.Enums
         private int Id = 0;
         private static int _allRectanglesCount = 0;
 
-        public Rectange(double height,double width, string color,int id)
+        public Rectangles(double height,double width, string color,int id)
         {
            
             Check(width, height);
             Color = color;
             Id = id;
         }
-        public Rectange() {
+        public Rectangles() {
             _allRectanglesCount +=1;
         }
 
